@@ -1,4 +1,4 @@
-Feature: Swag Labs Login
+Feature: Demoqa Login
 
 Scenario: Login with user shradha
   Given user is on login page
