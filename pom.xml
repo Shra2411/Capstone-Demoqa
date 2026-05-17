@@ -113,52 +113,36 @@
 
             <!-- 🔥 JMeter Plugin (FIXED) -->
             <plugin>
-                <groupId>com.lazerycode.jmeter</groupId>
-                <artifactId>jmeter-maven-plugin</artifactId>
-                <version>3.6.0</version>
+    <groupId>com.lazerycode.jmeter</groupId>
+    <artifactId>jmeter-maven-plugin</artifactId>
+    <version>3.6.0</version>
 
-                <executions>
+    <executions>
 
-                    <!-- CONFIG -->
-                    <execution>
-                        <id>configuration</id>
-                        <phase>generate-test-resources</phase>
-                        <goals>
-                            <goal>configure</goal>
-                        </goals>
-                    </execution>
+        <execution>
+            <id>jmeter-tests</id>
 
-                    <!-- RUN -->
-                    <execution>
-                        <id>jmeter-tests</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>jmeter</goal>
-                        </goals>
-                    </execution>
+            <goals>
+                <goal>jmeter</goal>
+            </goals>
 
-                </executions>
+        </execution>
 
-                <configuration>
+    </executions>
 
-                    <!-- JMX FILE -->
-                    <testFilesIncluded>
-                        <jMeterTestFile>login_test.jmx</jMeterTestFile>
-                    </testFilesIncluded>
+    <configuration>
 
-                    <!-- RESULT SETTINGS -->
-                    <resultsFileFormat>csv</resultsFileFormat>
-                    <testResultsTimestamp>false</testResultsTimestamp>
+        <testFilesIncluded>
 
-                    <!-- OUTPUT -->
-                    <resultsFileName>target/jmeter/results/results.jtl</resultsFileName>
-                    <jmeterLogFile>target/jmeter/logs/jmeter.log</jmeterLogFile>
+            <jMeterTestFile>
+                src/test/jmeter/login_test.jmx
+            </jMeterTestFile>
 
-                    <!-- IGNORE FAILURES -->
-                    <ignoreResultFailures>true</ignoreResultFailures>
+        </testFilesIncluded>
 
-                </configuration>
-            </plugin>
+    </configuration>
+
+</plugin>
 
             <!-- ✅ Allure Plugin -->
             <plugin>
